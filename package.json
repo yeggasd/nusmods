@@ -7,6 +7,9 @@
   ],
   "scripts": {
     "lint": "eslint '**/*.{js,jsx}'",
+    "lint-www": "eslint 'www/**/*.{js,jsx}",
+    "lint-api": "eslint 'api/**/*.{js}'",
+    "lint-pkgs": "eslint 'packages/**/*.{js}",
     "fmt": "prettier '**/*.{js,jsx,json,md,graphql}' '!*/{app,flow-typed}/**' --write"
   },
   "devDependencies": {
