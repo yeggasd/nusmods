@@ -61,6 +61,7 @@ export default class VenuesScraper extends BaseTask {
     // while code is more arguably more suitable as the name
     // and dept are not departments when they
     // can be owned by clubs and external vendors
+    // eslint-disable-next-line camelcase
     const { roomcode: name, roomname: type, dept: owned_by, ...extraProps } = venue;
 
     if (!R.isEmpty(extraProps)) {
