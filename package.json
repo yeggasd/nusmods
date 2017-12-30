@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "workspaces": [
+    "api",
+    "www",
+    "packages/*"
+  ],
+  "scripts": {
+    "lerna": "lerna clean",
+    "fmt": "prettier '**/*.{js,jsx}' '!**/flow-typed'"
+  },
+  "devDependencies": {
+    "lerna": "^2.5.1"
+  }
+}
