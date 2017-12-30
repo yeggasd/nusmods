@@ -1,16 +1,12 @@
 {
   "private": true,
-  "workspaces": [
-    "api",
-    "www",
-    "packages/*"
-  ],
+  "workspaces": ["api", "www", "packages/*"],
   "scripts": {
     "lint": "eslint '**/*.{js,jsx}'",
     "lint-www": "eslint 'www/**/*.{js,jsx}",
     "lint-api": "eslint 'api/**/*.{js}'",
     "lint-pkgs": "eslint 'packages/**/*.{js}",
-    "fmt": "prettier '**/*.{js,jsx,json,md,graphql}' '!*/{app,flow-typed}/**' --write"
+    "fmt": "prettier '**/*.{js,jsx,json,md,graphql}' '!*/{.cache-loader,app,flow-typed}/**' --write"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.3",
