@@ -44,7 +44,7 @@ async function gotCached(urlStr, config) {
 
   const modifiedTime = await getFileModifiedTime(cachedPath, urlStr);
   const maxCacheAge = config.maxCacheAge;
-  const isCachedFileValid = modifiedTime && (modifiedTime > Date.now() - (maxCacheAge * 1000));
+  const isCachedFileValid = modifiedTime && modifiedTime > Date.now() - maxCacheAge * 1000;
   if (maxCacheAge === -1 || isCachedFileValid) {
     return returnCached();
   }
@@ -56,7 +56,7 @@ async function gotCached(urlStr, config) {
   };
   if (modifiedTime) {
     options.headers = config.headers || {};
-    const modifedTimeString = (new Date(modifiedTime)).toUTCString();
+    const modifedTimeString = new Date(modifiedTime).toUTCString();
     options.headers['if-modified-since'] = modifedTimeString;
   }
 

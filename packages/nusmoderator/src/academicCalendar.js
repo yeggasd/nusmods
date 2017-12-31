@@ -127,7 +127,9 @@ export function getAcadWeekInfo(date) {
   const acadYear = currentAcad.year;
   const acadYearStartDate = currentAcad.startDate;
 
-  let acadWeekNumber = Math.ceil(((date.getTime() - acadYearStartDate.getTime()) + 1) / oneWeekDuration);
+  let acadWeekNumber = Math.ceil(
+    (date.getTime() - acadYearStartDate.getTime() + 1) / oneWeekDuration,
+  );
   const semester = getAcadSem(acadWeekNumber);
 
   let weekType = null;

@@ -1,10 +1,6 @@
 {
   "private": true,
-  "workspaces": [
-    "api",
-    "www",
-    "packages/*"
-  ],
+  "workspaces": ["api", "www", "packages/*"],
   "scripts": {
     "test": "jest --projects api www packages/* --coverage",
     "lint": "eslint '**/*.{js,jsx}'",

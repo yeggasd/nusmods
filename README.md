@@ -12,11 +12,11 @@ This monorepo consists of 3 projects. Further details can be found at the links 
 
 ## Talk to us!
 
-- Telegram: https://telegram.me/nusmods
-- Facebook: https://www.facebook.com/nusmods
-- Messenger: https://www.m.me/nusmods
-- Twitter: https://twitter.com/nusmods
-- Email: nusmods@googlegroups.com
+* Telegram: https://telegram.me/nusmods
+* Facebook: https://www.facebook.com/nusmods
+* Messenger: https://www.m.me/nusmods
+* Twitter: https://twitter.com/nusmods
+* Email: nusmods@googlegroups.com
 
 ## License
 

@@ -1,8 +1,4 @@
-import {
-  Token,
-  Lexer,
-  Parser,
-} from 'chevrotain';
+import { Token, Lexer, Parser } from 'chevrotain';
 import R from 'ramda';
 import { OPERATORS, MODULE_REGEX, AND_OR_REGEX } from './constants';
 
@@ -35,15 +31,7 @@ class IrrelevantWord extends Token {}
 IrrelevantWord.PATTERN = /[^\s()]+/;
 IrrelevantWord.GROUP = Lexer.SKIPPED;
 
-const allTokens = [
-  WhiteSpace,
-  Module,
-  And,
-  Or,
-  LeftBracket,
-  RightBracket,
-  IrrelevantWord,
-];
+const allTokens = [WhiteSpace, Module, And, Or, LeftBracket, RightBracket, IrrelevantWord];
 const ReqTreeLexer = new Lexer(allTokens);
 
 function generateAndBranch(modules) {
@@ -99,10 +87,15 @@ class ReqTreeParser extends Parser {
       return generateOrBranch(value);
     });
 
-    this.RULE('atomicExpression', () => this.OR([
-      { ALT: () => this.SUBRULE(this.parenthesisExpression) },
-      { ALT: () => this.CONSUME(Module).image },
-    ], 'a module or parenthesis expression'));
+    this.RULE('atomicExpression', () =>
+      this.OR(
+        [
+          { ALT: () => this.SUBRULE(this.parenthesisExpression) },
+          { ALT: () => this.CONSUME(Module).image },
+        ],
+        'a module or parenthesis expression',
+      ),
+    );
 
     // parenthesisExpression has the highest precedence and thus it appears
     // in the "lowest" leaf in the expression ParseTree.
@@ -120,7 +113,8 @@ class ReqTreeParser extends Parser {
   }
 
   // avoids inserting module literals as these can have multiple(and infinite) semantic values
-  canTokenTypeBeInsertedInRecovery(tokClass) { // eslint-disable-line class-methods-use-this
+  canTokenTypeBeInsertedInRecovery(tokClass) {
+    // eslint-disable-line class-methods-use-this
     return tokClass !== Module;
   }
 }

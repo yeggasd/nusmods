@@ -5565,7 +5565,8 @@
     }
   ],
   "AcadYear": "2016/2017",
-  "Prerequisite": "'O' level pass in Physics or Combined Science (Physics & Chemistry OR Physics & Biology).",
+  "Prerequisite":
+    "'O' level pass in Physics or Combined Science (Physics & Chemistry OR Physics & Biology).",
   "History": [
     {
       "Timetable": [

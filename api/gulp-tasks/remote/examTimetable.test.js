@@ -15,10 +15,10 @@ jest.unmock('fs-extra');
 describe('parseExamPdf', () => {
   const sublog = { warn: jest.fn() };
   function matchPdfOutput(filePath) {
-   const absFilePath = path.resolve(__dirname, '../../', filePath);
+    const absFilePath = path.resolve(__dirname, '../../', filePath);
     return fs
       .readFile(absFilePath)
-      .then(fileContent => parseExamPdf(fileContent, sublog))
+      .then((fileContent) => parseExamPdf(fileContent, sublog))
       .then((result) => {
         expect(result).toMatchSnapshot();
       });

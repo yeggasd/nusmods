@@ -2,10 +2,12 @@
   "ModuleCode": "ACC2002",
   "ModuleTitle": "Managerial Accounting",
   "Department": "Accounting",
-  "ModuleDescription": "This course covers major concepts, tools and techniques in managerial accounting. It provides students with an appreciation of how managerial accounting evolves with changes in the business environment and why the usefulness of managerial accounting systems depends on the organisational context. The emphasis is on the use of managerial accounting information for decision-making, planning, and controlling activities. Students are introduced to both traditional and contemporary managerial accounting concepts and techniques.",
+  "ModuleDescription":
+    "This course covers major concepts, tools and techniques in managerial accounting. It provides students with an appreciation of how managerial accounting evolves with changes in the business environment and why the usefulness of managerial accounting systems depends on the organisational context. The emphasis is on the use of managerial accounting information for decision-making, planning, and controlling activities. Students are introduced to both traditional and contemporary managerial accounting concepts and techniques.",
   "ModuleCredit": "4",
   "Workload": "2-2-0-3-4",
-  "Prerequisite": "Students must have completed BK1003 or BZ1002 or BH1002 or FNA1002 or FNA1002X or FNA1002E or ACC1002 or ACC1002X or BH1002E or CS1304 or EC3212 or EG1422 before they are allowed to take ACC2002.",
+  "Prerequisite":
+    "Students must have completed BK1003 or BZ1002 or BH1002 or FNA1002 or FNA1002X or FNA1002E or ACC1002 or ACC1002X or BH1002E or CS1304 or EC3212 or EG1422 before they are allowed to take ACC2002.",
   "Preclusion": "BH2002 or BZ3102 or BK2001 or FNA2002 or IE4242",
   "ExamDate": "2018-05-02T17:00+0800",
   "Timetable": [

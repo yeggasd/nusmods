@@ -3,12 +3,12 @@
 NUSMods API consolidates and normalizes various bits of NUS module information
 from the following sources:
 
-- [CORS historical bidding statistics](http://www.nus.edu.sg/cors/archive.html)
-- [CORS module information listings](http://www.nus.edu.sg/cors/schedule.html#corsmodinfo)
-- [IVLE API](http://wiki.nus.edu.sg/display/ivlelapi/Home)
-- [NUS Bulletin](http://www.nus.edu.sg/registrar/nusbulletin/modulesearch.html)
-- [NUS Examination Time-Table](http://www.nus.edu.sg/registrar/event/examschedule-sem1.html)
-- [NUS Living Lab API](http://nuslivinglab.nus.edu.sg/)
+* [CORS historical bidding statistics](http://www.nus.edu.sg/cors/archive.html)
+* [CORS module information listings](http://www.nus.edu.sg/cors/schedule.html#corsmodinfo)
+* [IVLE API](http://wiki.nus.edu.sg/display/ivlelapi/Home)
+* [NUS Bulletin](http://www.nus.edu.sg/registrar/nusbulletin/modulesearch.html)
+* [NUS Examination Time-Table](http://www.nus.edu.sg/registrar/event/examschedule-sem1.html)
+* [NUS Living Lab API](http://nuslivinglab.nus.edu.sg/)
 
 It is a purely JSON API, with CORS and JSONP support, and is statically
 generated - since the module information changes a few times a day at most, this
@@ -42,7 +42,7 @@ browsers is not required.
 ### jQuery Example
 
 ```js
-$.getJSON('http://api.nusmods.com/2015-2016/1/moduleList.json', function (data) {
+$.getJSON('http://api.nusmods.com/2015-2016/1/moduleList.json', function(data) {
   console.log(data);
 });
 ```
@@ -54,7 +54,7 @@ If supporting legacy browsers is required, JSONP can be used instead.
 ### jQuery Example
 
 ```js
-$.getJSON('http://api.nusmods.com/2015-2016/1/moduleList.json?callback=?', function (data) {
+$.getJSON('http://api.nusmods.com/2015-2016/1/moduleList.json?callback=?', function(data) {
   console.log(data);
 });
 ```
@@ -227,7 +227,6 @@ Get an API key from [IVLE](http://ivle.nus.edu.sg/LAPI/default.aspx) and put it 
 
 Download and install [Node.js](http://nodejs.org), [npm](http://npmjs.org), [yarn](https://yarnpkg.com/en/docs/install) and [sqlite3](https://www.sqlite.org/download.html).
 
-
 Then run the following commands:
 
 ```bash
@@ -250,6 +249,7 @@ Invoking sub-tasks would involve calling the task by changing the commands in `p
 ```bash
 $ gulp examTimetable
 ```
+
 For a list of all tasks available run
 
 ```bash
@@ -266,9 +266,9 @@ If you want to parse a specific year or semester, take a look at `gulpfile.babel
 gulp.task('bulletinModules', () => {
   const subtasks = iterateSems({
     from: 2017, // change this to year you want to start from
-    to: 2018,	// year to end parsing
-    semesters: [1, 2, 3, 4],	// sem 1, 2 and the 2 special semesters
-    config: config.bulletinModules,	// configuration as found in config.js
+    to: 2018, // year to end parsing
+    semesters: [1, 2, 3, 4], // sem 1, 2 and the 2 special semesters
+    config: config.bulletinModules, // configuration as found in config.js
   });
 
   const bulletinModules = R.map(tasks.bulletinModules, subtasks);

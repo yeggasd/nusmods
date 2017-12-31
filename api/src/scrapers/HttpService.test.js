@@ -15,7 +15,9 @@ describe('getCacheFilePath', () => {
 
   it('should output root to domain with index.html', () => {
     expect(getFilePath('https://www.example.com')).toBe('testBase/example.com/index.html');
-    expect(getFilePath('https://www.example.com/test')).toBe('testBase/example.com/test/index.html');
+    expect(getFilePath('https://www.example.com/test')).toBe(
+      'testBase/example.com/test/index.html',
+    );
   });
 
   it('should normalize url', () => {
@@ -27,28 +29,34 @@ describe('getCacheFilePath', () => {
     expect(getFilePath('http://example.com/index.html')).toBe(expectedOutput);
     expect(getFilePath('http://www.example.com/#context')).toBe(expectedOutput);
 
-    expect(getFilePath('http://example.com/', 'a=1&b=2'))
-      .toBe(getFilePath('http://example.com/', 'b=2&a=1'));
-    expect(getFilePath('http://example.com/?a=1', 'b=2'))
-      .toBe(getFilePath('http://example.com/?b=2', 'a=1'));
+    expect(getFilePath('http://example.com/', 'a=1&b=2')).toBe(
+      getFilePath('http://example.com/', 'b=2&a=1'),
+    );
+    expect(getFilePath('http://example.com/?a=1', 'b=2')).toBe(
+      getFilePath('http://example.com/?b=2', 'a=1'),
+    );
   });
 
   it('should output queries to file savable format', () => {
-    expect(getFilePath('https://www.example.com/', 'query="test"&x="test"'))
-      .toBe('testBase/example.com/query=test&x=test');
-    expect(getFilePath('https://www.example.com/', 'query=123'))
-      .toBe('testBase/example.com/query=123');
-    expect(getFilePath('https://www.example.com/', '<te>'))
-      .toBe('testBase/example.com/te=');
+    expect(getFilePath('https://www.example.com/', 'query="test"&x="test"')).toBe(
+      'testBase/example.com/query=test&x=test',
+    );
+    expect(getFilePath('https://www.example.com/', 'query=123')).toBe(
+      'testBase/example.com/query=123',
+    );
+    expect(getFilePath('https://www.example.com/', '<te>')).toBe('testBase/example.com/te=');
   });
 
   it('should split subpaths to many different subfolders', () => {
-    expect(getFilePath('https://www.example.com/test/', 'query="test"'))
-      .toBe('testBase/example.com/test/query=test');
-    expect(getFilePath('https://www.example.com/1/2/', 'query=123&x=5'))
-      .toBe('testBase/example.com/1/2/query=123&x=5');
-    expect(getFilePath('https://www.example.com/1/2/hex'))
-      .toBe('testBase/example.com/1/2/hex/index.html');
+    expect(getFilePath('https://www.example.com/test/', 'query="test"')).toBe(
+      'testBase/example.com/test/query=test',
+    );
+    expect(getFilePath('https://www.example.com/1/2/', 'query=123&x=5')).toBe(
+      'testBase/example.com/1/2/query=123&x=5',
+    );
+    expect(getFilePath('https://www.example.com/1/2/hex')).toBe(
+      'testBase/example.com/1/2/hex/index.html',
+    );
   });
 
   it('should throw when there is no valid filename', () => {
@@ -105,7 +113,9 @@ describe('HttpService', () => {
       },
     };
     fs.setMock(mockFileSystem, mockFileSystemMeta);
-    nock(HOST).get(/.*/).reply(200, freshData);
+    nock(HOST)
+      .get(/.*/)
+      .reply(200, freshData);
   });
 
   afterAll(() => {
@@ -165,7 +175,9 @@ describe('HttpService', () => {
 
     it('should send cached file if server returns 304', async () => {
       nock.cleanAll();
-      nock(HOST).get(/.*/).reply(304);
+      nock(HOST)
+        .get(/.*/)
+        .reply(304);
       const response = await HttpService.get(HOST);
       expect(fs.outputFile).not.toBeCalled();
       expect(response.data).toBe(cachedData);

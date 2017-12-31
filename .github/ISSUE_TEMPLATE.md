@@ -3,7 +3,7 @@
   is beneficial and delete the bug-related questions.
 -->
 
-**Do you want to request a *feature* or report a *bug*?**
+**Do you want to request a _feature_ or report a _bug_?**
 
 <ANSWER HERE>
 
@@ -21,9 +21,9 @@
 
 **Further information**
 
-- Which version of NUSMods are you currently using? (Check the footer for the version number, 201XXXXX-XXXXXXX)
-- Did this work in NUSMods BEFORE the R release/redesign? Yes/No/Unsure
-- Did this work in NUSMods AFTER the R release/redesign? Yes/No/Unsure
-- Which browser and version are you using? E.g. Chrome 62/Firefox Quantum 57/Safari 11.1.1/etc
-- Which device are you using? E.g. MacBook Pro/Surface Pro/iPhone X/etc
-- Which operating system and version are you on? E.g. macOS 10.12.5/Windows 10/iOS 11.0.0/etc
+* Which version of NUSMods are you currently using? (Check the footer for the version number, 201XXXXX-XXXXXXX)
+* Did this work in NUSMods BEFORE the R release/redesign? Yes/No/Unsure
+* Did this work in NUSMods AFTER the R release/redesign? Yes/No/Unsure
+* Which browser and version are you using? E.g. Chrome 62/Firefox Quantum 57/Safari 11.1.1/etc
+* Which device are you using? E.g. MacBook Pro/Surface Pro/iPhone X/etc
+* Which operating system and version are you on? E.g. macOS 10.12.5/Windows 10/iOS 11.0.0/etc
