@@ -1,7 +1,12 @@
 {
   "private": true,
-  "workspaces": ["api", "www", "packages/*"],
+  "workspaces": [
+    "api",
+    "www",
+    "packages/*"
+  ],
   "scripts": {
+    "test": "jest --projects api www packages/* --coverage",
     "lint": "eslint '**/*.{js,jsx}'",
     "lint-www": "eslint 'www/**/*.{js,jsx}",
     "lint-api": "eslint 'api/**/*.{js}'",
@@ -9,7 +14,9 @@
     "fmt": "prettier '**/*.{js,jsx,json,md,graphql}' '!*/{.cache-loader,app,flow-typed}/**' --write"
   },
   "devDependencies": {
+    "babel-core": "^6.25.0",
     "babel-eslint": "^8.0.3",
+    "babel-jest": "^22.0.4",
     "eslint": "^4.14.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-flowtype": "^2.32.0",
@@ -17,6 +24,7 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-prettier": "^2.4.0",
     "eslint-plugin-react": "^7.4.0",
+    "jest": "^22.0.4",
     "lerna": "^2.5.1",
     "prettier": "1.9.2"
   }

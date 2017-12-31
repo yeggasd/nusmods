@@ -1,3 +1,4 @@
+import path from 'path';
 import fs from 'fs-extra';
 import {
   parseExamPdf,
@@ -14,8 +15,9 @@ jest.unmock('fs-extra');
 describe('parseExamPdf', () => {
   const sublog = { warn: jest.fn() };
   function matchPdfOutput(filePath) {
+   const absFilePath = path.resolve(__dirname, '../../', filePath);
     return fs
-      .readFile(filePath)
+      .readFile(absFilePath)
       .then(fileContent => parseExamPdf(fileContent, sublog))
       .then((result) => {
         expect(result).toMatchSnapshot();

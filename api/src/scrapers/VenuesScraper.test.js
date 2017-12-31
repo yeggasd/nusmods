@@ -1,3 +1,4 @@
+import path from 'path';
 import VenuesScraper from './VenuesScraper';
 
 describe('VenuesScraper', () => {
@@ -6,9 +7,12 @@ describe('VenuesScraper', () => {
 
   describe('save', () => {
     beforeEach(async () => {
-      await scraper.db.migrate.rollback();
-      await scraper.db.migrate.latest();
-      await scraper.db.seed.run();
+      const rootDir = path.resolve(__dirname, '../../');
+      const migrationConfig = { directory: path.join(rootDir, 'migrations') };
+      const seedConfig = { directory: path.join(rootDir, 'seeds') };
+      await scraper.db.migrate.rollback(migrationConfig);
+      await scraper.db.migrate.latest(migrationConfig);
+      await scraper.db.seed.run(seedConfig);
     });
 
     it('should start out with empty db', async () => {

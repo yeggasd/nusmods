@@ -1,6 +1,6 @@
 {
   "name": "nusmoderator",
-  "version": "3.0.0-api",
+  "version": "3.0.0-alpha",
   "description": "A lightweight library with helpful functions for NUS-related matters",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -46,9 +46,6 @@
     "babel-preset-env": "^1.6.1",
     "documentation": "^5.3.5",
     "eslint": "4.9.0",
-    "eslint-config-airbnb-base": "^12.1.0w",
-    "eslint-plugin-flowtype": "^2.20.0",
-    "eslint-plugin-import": "2.7.0",
     "jest": "^22.0.4",
     "microbundle": "^0.2.4",
     "rimraf": "^2.5.4"

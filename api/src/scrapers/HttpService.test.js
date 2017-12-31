@@ -2,6 +2,7 @@ import nock from 'nock';
 import fs from 'fs-extra';
 import HttpService, { getCacheFilePath, getFileModifiedTime } from './HttpService';
 
+jest.mock('fs-extra');
 jest.mock('../../config.js', () => ({
   defaults: {
     cachePath: 'testBase',
