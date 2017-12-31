@@ -113,8 +113,8 @@ class ReqTreeParser extends Parser {
   }
 
   // avoids inserting module literals as these can have multiple(and infinite) semantic values
+  // eslint-disable-next-line class-methods-use-this
   canTokenTypeBeInsertedInRecovery(tokClass) {
-    // eslint-disable-line class-methods-use-this
     return tokClass !== Module;
   }
 }

@@ -57,7 +57,7 @@ async function processBiddingStats(href, config) {
       group = $(ps[1]).text();
     }
 
-    const statsArray = ps.slice(ps.length - 7).map((i, el) => $(el).text());
+    const statsArray = ps.slice(ps.length - 7).map((j, el) => $(el).text());
 
     return {
       ...R.zipObj(statsKeys, statsArray),

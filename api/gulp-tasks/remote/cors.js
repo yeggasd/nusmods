@@ -55,11 +55,11 @@ function processModulePage(webpage, moduleInfo) {
     // remove inner header and empty rows
     const rows = $('tr', table)
       .slice(1)
-      .filter((i, el) => $('td', el).length > 6);
+      .filter((j, el) => $('td', el).length > 6);
 
     // get all the relevant information
     const timetableDetails = rows
-      .map((i, el) => {
+      .map((j, el) => {
         const row = $('td', el);
         return {
           ClassNo: row
@@ -122,9 +122,9 @@ function processLessonTypes(webpage, lessonTypes) {
     // remove inner header and empty rows
     const rows = $('tr', table)
       .slice(1)
-      .filter((i, el) => $('td', el).length > 6);
+      .filter((j, el) => $('td', el).length > 6);
 
-    rows.each((i, el) => {
+    rows.each((j, el) => {
       const key = $('td', el)
         .eq(1)
         .text();

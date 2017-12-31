@@ -14,7 +14,7 @@ module.exports = {
   presets: [
     // ES features necessary for user's Node version
     [
-      require('babel-preset-env').default,
+      require.resolve('babel-preset-env'),
       {
         targets: {
           node: 'current',

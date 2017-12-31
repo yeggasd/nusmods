@@ -5,4 +5,12 @@ module.exports = {
   settings: {
     'import/resolver': 'node',
   },
+  overrides: [
+    {
+      files: '__mocks__/**',
+      env: {
+        jest: true,
+      },
+    },
+  ],
 };
