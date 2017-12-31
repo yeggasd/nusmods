@@ -9,7 +9,7 @@
     "promote-staging": "bash scripts/promote-staging.sh",
     "postinstall": "flow-scripts stub",
     "flow": "flow check",
-    "lint": "npm run lint:src && npm run flow && npm run lint:test && npm run lint:scripts && npm run lint:styles",
+    "lint": "npm run flow && npm run lint:scripts && npm run lint:styles",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "cors": "node scripts/cors-crawler",
