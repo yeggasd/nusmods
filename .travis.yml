@@ -10,6 +10,6 @@ cache:
 script:
   - yarn install
   - yarn lint
-  - yarn test
+  - yarn test -ci
 after_success:
   cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js

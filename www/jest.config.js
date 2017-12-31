@@ -19,6 +19,7 @@ module.exports = {
   // Allow us to directly use enzyme wrappers for snapshotting
   // Usage: expect(enzyme.shallow(<div/>)).toMatchSnapshot();
   snapshotSerializers: ['enzyme-to-json/serializer'],
+  coverageDirectory: '<rootDir>/../coverage',
   // Only write lcov files in CIs
   coverageReporters: ['text'].concat(process.env.CI ? 'lcov' : []),
 };

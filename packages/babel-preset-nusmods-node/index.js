@@ -22,6 +22,7 @@ module.exports = {
         },
       },
     ],
+    require.resolve('babel-preset-flow'),
   ],
   plugins,
 };
