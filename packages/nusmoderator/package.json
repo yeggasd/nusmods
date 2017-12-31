@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nusmodifications/nusmoderator.git"
+    "url": "https://github.com/nusmodifications/nusmods.git"
   },
   "keywords": [
     "NUS",
@@ -35,9 +35,9 @@
   "author": "NUSModifications",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nusmodifications/nusmoderator/issues"
+    "url": "https://github.com/nusmodifications/nusmods/issues"
   },
-  "homepage": "https://github.com/nusmodifications/nusmoderator",
+  "homepage": "https://github.com/nusmodifications/nusmods",
   "npmName": "nusmoderator",
   "devDependencies": {
     "babel-core": "^6.26.0",

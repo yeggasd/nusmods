@@ -1,0 +1,35 @@
+{
+  "name": "babel-preset-nusmods-react",
+  "version": "3.0.0-alpha",
+  "description": "A babel preset for nusmods react environments",
+  "files": [
+     "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nusmodifications/nusmods.git"
+  },
+  "keywords": [
+    "NUS",
+    "NUSMods",
+    "babel-preset"
+  ],
+  "author": "NUSModifications",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nusmodifications/nusmods/issues"
+  },
+  "homepage": "https://github.com/nusmodifications/nusmods",
+  "npmName": "babel-preset-nusmods-react",
+  "dependencies": {
+    "babel-plugin-dynamic-import-node": "1.1.0",
+    "babel-plugin-lodash": "^3.2.11",
+    "babel-plugin-syntax-dynamic-import": "6.18.0",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-react-optimize": "^1.0.1",
+    "react-hot-loader": "^3.1.3"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "babel-preset-nusmods-node",
+  "version": "3.0.0-alpha",
+  "description": "A babel preset for nusmods node environments",
+  "files": [
+     "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nusmodifications/nusmods.git"
+  },
+  "keywords": [
+    "NUS",
+    "NUSMods",
+    "babel-preset"
+  ],
+  "author": "NUSModifications",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nusmodifications/nusmods/issues"
+  },
+  "homepage": "https://github.com/nusmodifications/nusmods",
+  "npmName": "babel-preset-nusmods-node",
+  "dependencies": {
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-preset-env": "1.6.1"
+  }
+}
