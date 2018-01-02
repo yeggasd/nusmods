@@ -16,7 +16,7 @@ import CS1010S from '__mocks__/modules/CS1010S.json';
 /** @var {Module} */
 import CS3216 from '__mocks__/modules/CS3216.json';
 
-import { TimetableContainerComponent } from './TimetableContainer';
+import { TimetablePageComponent } from './TimetablePage';
 import TimetableContent from './TimetableContent';
 import LoadingSpinner from '../components/LoadingSpinner';
 
@@ -40,7 +40,7 @@ function create(
     history: router.history,
 
     wrapper: shallow(
-      <TimetableContainerComponent
+      <TimetablePageComponent
         activeSemester={1}
         semester={semesterForTimetablePage(params.semester)}
         timetable={timetable}

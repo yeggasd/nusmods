@@ -28,7 +28,7 @@ import LoadingSpinner from 'views/components/LoadingSpinner';
 import ScrollToTop from 'views/components/ScrollToTop';
 import TimetableContent from './TimetableContent';
 
-import styles from './TimetableContainer.scss';
+import styles from './TimetablePage.scss';
 
 const EMPTY_OBJECT = {};
 
@@ -56,7 +56,7 @@ type State = {
  * - Import timetable data from query string if action is defined
  * - Create the UI for the user to confirm their actions
  */
-export class TimetableContainerComponent extends PureComponent<Props, State> {
+export class TimetablePageComponent extends PureComponent<Props, State> {
   constructor(props: Props) {
     super(props);
 
@@ -226,10 +226,10 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 // Explicitly declare top level components for React hot reloading to work.
-const connectedTimetableContainer = connect(mapStateToProps, {
+const connectedTimetablePage = connect(mapStateToProps, {
   selectSemester,
   setTimetable,
   fetchTimetableModules,
-})(TimetableContainerComponent);
-const routedTimetableContainer = withRouter(connectedTimetableContainer);
-export default deferComponentRender(routedTimetableContainer);
+})(TimetablePageComponent);
+const routedTimetablePage = withRouter(connectedTimetablePage);
+export default deferComponentRender(routedTimetablePage);
