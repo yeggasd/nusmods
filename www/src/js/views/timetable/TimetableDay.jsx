@@ -13,7 +13,7 @@ type Props = {
   isScrolledHorizontally: boolean,
   startingIndex: number,
   endingIndex: number,
-  onModifyCell: Function,
+  onModifyCell?: Function,
 };
 
 // Height of timetable per hour in vertical mode

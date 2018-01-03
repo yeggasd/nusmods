@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 
-import type { Lesson } from 'types/modules';
+import type { ModifiableLesson } from 'types/modules';
 
 import { convertTimeToIndex } from 'utils/timify';
 import styles from './TimetableRow.scss';
@@ -12,8 +12,8 @@ type Props = {
   isScrolledHorizontally: boolean,
   startingIndex: number,
   endingIndex: number,
-  lessons: Array<Lesson>,
-  onModifyCell: Function,
+  lessons: Array<ModifiableLesson>,
+  onModifyCell?: Function,
 };
 
 /**

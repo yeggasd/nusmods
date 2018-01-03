@@ -9,6 +9,7 @@ import type {
   Module,
   ModuleCode,
   RawLesson,
+  ModifiableLesson,
   Semester,
 } from 'types/modules';
 import type {
@@ -76,6 +77,49 @@ export function randomModuleLessonConfig(lessons: Array<RawLesson>): ModuleLesso
   );
 }
 
+export function hydrateTimetable(modules, semester, colors, activeLesson) {
+const lessons = [];
+_.entries(timetable).forEach(([moduleCode, lessonMap]) => {
+  // Do not process hidden modules
+  if (hiddenInTimetable.includes(moduleCode)) return;
+
+  // Obtain all lessons this semester
+  const module = modules[moduleCode];
+  const allLessonsForSemester = getModuleTimetable(module, semester);
+  const groupedByLessonType = _.groupBy(allLessonsForSemester, (lesson) => lesson.LessonType);
+
+  _.entries(lessonMap).forEach(([type, classNo]) => {
+    const lessonChoices = groupedByLessonType[type];
+    if (
+      activeLesson &&
+      activeLesson.ModuleCode === moduleCode &&
+      type === activeLesson.LessonType
+    ) {
+      // Return all possible choices
+      lessons.push(
+        lessonChoices.map((choice) => ({
+          ...choice,
+          colorIndex: colors[moduleCode],
+          isModifiable: true,
+          isAvailable: choice.ClassNo !== activeLesson.ClassNo,
+          isActive: choice.ClassNo === activeLesson.ClassNo,
+        })),
+      );
+    } else {
+      // Only return the chosen module
+      const chosenLesson = lessonChoices.find((lesson) => lesson.ClassNo === classNo);
+      lessons.push({
+        ...chosenLesson,
+        colorIndex: colors[moduleCode],
+        isModifiable: !!lessonChoices.length,
+        isAvailable: false,
+        isActive: false,
+      });
+    }
+  });
+});
+}
+
 // Replaces ClassNo in SemTimetableConfig with Array<Lesson>
 export function hydrateSemTimetableWithLessons(
   semTimetableConfig: SemTimetableConfig,
@@ -130,7 +174,7 @@ export function timetableLessonsArray(timetable: SemTimetableConfigWithLessons):
 //    Monday: [Lesson, Lesson, ...],
 //    Tuesday: [Lesson, ...],
 //  }
-export function groupLessonsByDay(lessons: Array<Lesson>): TimetableDayFormat {
+export function groupLessonsByDay(lessons: Array<ModifiableLesson>): TimetableDayFormat {
   return _.groupBy(lessons, (lesson) => lesson.DayText);
 }
 
@@ -150,7 +194,7 @@ export function doLessonsOverlap(lesson1: Lesson, lesson2: Lesson): boolean {
 //    [Lesson, Lesson, ...],
 //    [Lesson, ...],
 //  ]
-export function arrangeLessonsWithinDay(lessons: Array<Lesson>): TimetableDayArrangement {
+export function arrangeLessonsWithinDay(lessons: Array<ModifiableLesson>): TimetableDayArrangement {
   const rows: TimetableDayArrangement = [[]];
   if (_.isEmpty(lessons)) {
     return rows;
@@ -161,7 +205,7 @@ export function arrangeLessonsWithinDay(lessons: Array<Lesson>): TimetableDayArr
   });
   sortedLessons.forEach((lesson: Lesson) => {
     for (let i = 0, length = rows.length; i < length; i++) {
-      const rowLessons: Array<Lesson> = rows[i];
+      const rowLessons: Array<ModifiableLesson> = rows[i];
       const previousLesson = _.last(rowLessons);
       if (!previousLesson || !doLessonsOverlap(previousLesson, lesson)) {
         // Lesson does not overlap with any Lesson in the row. Add it to row.
@@ -193,7 +237,9 @@ export function arrangeLessonsWithinDay(lessons: Array<Lesson>): TimetableDayArr
 // $FlowFixMe - Flow refuses to accept 'extra' properties on Lesson object
 export function arrangeLessonsForWeek(lessons: Lesson[]): TimetableArrangement {
   const dayLessons = groupLessonsByDay(lessons);
-  return _.mapValues(dayLessons, (dayLesson: Lesson[]) => arrangeLessonsWithinDay(dayLesson));
+  return _.mapValues(dayLessons, (dayLesson: ModifiableLesson[]) =>
+    arrangeLessonsWithinDay(dayLesson),
+  );
 }
 
 //  Determines if a Lesson on the timetable can be modifiable / dragged around.

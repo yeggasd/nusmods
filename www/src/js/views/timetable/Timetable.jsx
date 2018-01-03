@@ -1,6 +1,6 @@
 // @flow
 import React, { PureComponent } from 'react';
-import { values, flattenDeep, noop } from 'lodash';
+import { values, flattenDeep } from 'lodash';
 
 import type { Lesson } from 'types/modules';
 import type { TimetableArrangement } from 'types/timetables';
@@ -15,16 +15,13 @@ type Props = {
   lessons: TimetableArrangement,
   isVerticalOrientation: boolean,
   isScrolledHorizontally: boolean,
-  onModifyCell: Function,
+  onModifyCell?: Function,
 };
 
 class Timetable extends PureComponent<Props> {
-  timetableDom: ?HTMLDivElement;
-
   static defaultProps = {
     isVerticalOrientation: false,
     isScrolledHorizontally: false,
-    onModifyCell: noop,
   };
 
   render() {
@@ -36,28 +33,22 @@ class Timetable extends PureComponent<Props> {
     const { startingIndex, endingIndex } = calculateBorderTimings(lessons);
 
     return (
-      <div
-        ref={(r) => {
-          this.timetableDom = r;
-        }}
-      >
-        <div className={styles.container}>
-          <TimetableTimings startingIndex={startingIndex} endingIndex={endingIndex} />
-          <ol className={styles.days}>
-            {schoolDays.map((day) => (
-              <TimetableDay
-                key={day}
-                day={day}
-                startingIndex={startingIndex}
-                endingIndex={endingIndex}
-                onModifyCell={this.props.onModifyCell}
-                verticalMode={this.props.isVerticalOrientation}
-                dayLessonRows={this.props.lessons[day] || [[]]}
-                isScrolledHorizontally={this.props.isScrolledHorizontally}
-              />
-            ))}
-          </ol>
-        </div>
+      <div className={styles.container}>
+        <TimetableTimings startingIndex={startingIndex} endingIndex={endingIndex} />
+        <ol className={styles.days}>
+          {schoolDays.map((day) => (
+            <TimetableDay
+              key={day}
+              day={day}
+              startingIndex={startingIndex}
+              endingIndex={endingIndex}
+              onModifyCell={this.props.onModifyCell}
+              verticalMode={this.props.isVerticalOrientation}
+              dayLessonRows={this.props.lessons[day] || [[]]}
+              isScrolledHorizontally={this.props.isScrolledHorizontally}
+            />
+          ))}
+        </ol>
       </div>
     );
   }
